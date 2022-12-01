@@ -8,15 +8,18 @@ const port = 8080;
 app.use(express.json());
 app.use(cors());
 
-app.get('/users/', (_, res) => {
+// GET ALL USERS
+app.get('/users', (_, res) => {
   res.json(Users.read());
 });
 
+// GET ONE USER
 app.get('/users/:id', (req, res) => {
   res.json(Users.readOne(req.params.id));
 });
 
-app.post('/users/', (req, res) => {
+// CREATE USER
+app.post('/users', (req, res) => {
   Users.create(req.body);
   res.json(Users.read());
 });

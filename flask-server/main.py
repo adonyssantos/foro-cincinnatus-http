@@ -1,17 +1,25 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
-from controllers import tasks_controllers, task_controllers
+from db import Tasks
 
 app = Flask(__name__)
 CORS(app)
 
 @app.route('/tasks', methods=['GET', 'POST'])
 def tasks():
-  return tasks_controllers[request.method]()
+  if request.method == 'GET':
+    return jsonify(Tasks['read']())
+  elif request.method == 'POST':
+    task = request.get_json()
+    tasks = Tasks['create'](task)
+    return jsonify(tasks)
     
-@app.route('/tasks/<int:id>', methods=['GET', 'PUT', 'DELETE'])
+    
+@app.route('/tasks/<string:id>', methods=['GET'])
 def task(id):
-  return task_controllers[request.method](id)
+  if request.method == 'GET':
+    task = Tasks['read_one'](id)
+    return jsonify(task)
 
 if __name__ == '__main__':
   app.run(debug=True, port=5050)

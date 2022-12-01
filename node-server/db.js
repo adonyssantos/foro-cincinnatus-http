@@ -1,20 +1,20 @@
-const Users = {};
+const data = [];
 
-Users.data = [];
+const Users = {
+  create: user => {
+    data.push({
+      id: data.length + 1,
+      ...user,
+    });
+  },
 
-Users.create = user => {
-  Users.data.push({
-    id: Users.data.length + 1,
-    name: user.name,
-  });
-};
+  read: () => {
+    return data;
+  },
 
-Users.read = () => {
-  return Users.data;
-};
-
-Users.readOne = id => {
-  return Users.data.find(user => user.id === id) || { error: 'User not found' };
+  readOne: id => {
+    return data.find(user => user.id == id) || null;
+  },
 };
 
 export default Users;

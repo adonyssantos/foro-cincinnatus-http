@@ -1,14 +1,26 @@
-Tasks = {}
+data = []
 
-Tasks['data'] = []
+def read_tasks():
+  return data
 
-Tasks['add'] = lambda task: Tasks['data'].append(task)
+def read_one_task(id):
+  # get the element with the id in data or None if not found
+  task = next((task for task in data if task['id'] == id), None)
 
-Tasks['getAll'] = lambda: Tasks['data']
+  return task
 
-Tasks['get'] = lambda id: Tasks['data'][id]
+def create_task(task):
+  newTask = {
+      'id': str(len(data) + 1),
+      **task,
+    }
 
-Tasks['delete'] = lambda id: Tasks['data'].pop(id)
+  data.append(newTask)
 
-Tasks['update'] = lambda id, task: Tasks[ 'data'].__setitem__(id, task)
+  return data
 
+Tasks = {
+  'create': create_task,
+  'read': read_tasks,
+  'read_one': read_one_task,
+}
