@@ -1,0 +1,69 @@
+#root {
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  background-color: #353535;
+}
+
+header > * {
+  margin: 2rem;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.25s;
+}
+
+.Layout {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  margin-top: 6rem;
+}
+
+.Layout .container {
+  margin-top: 120px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+form input {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
