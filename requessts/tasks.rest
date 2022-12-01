@@ -1,0 +1,32 @@
+### GET ALL DATA from the base url
+GET http://localhost:5050/tasks
+
+### CREATE A NEW TASK
+POST http://localhost:5050/tasks
+
+Content-Type: application/json
+
+{
+    "title": "My new task",
+    "description": "My new task description",
+    "done": false,
+    "author": "1"
+}
+
+### GET A TASK BY ID
+GET http://localhost:5050/tasks/1
+
+### UPDATE A TASK BY ID
+PUT http://localhost:5050/tasks/1
+Content-Type: application/json
+
+{
+    "title": "My new task",
+    "description": "My new task description",
+    "done": true,
+    "author": "1"
+}
+
+### DELETE A TASK BY ID
+DELETE http://localhost:5050/tasks/1
+
