@@ -3,7 +3,9 @@ from flask_cors import CORS
 from db import Tasks
 
 app = Flask(__name__)
-CORS(app)
+CORS(app) # TODO: fix CORS
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/tasks', methods=['GET', 'POST'])
 def tasks():
