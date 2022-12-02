@@ -6,10 +6,11 @@ export default function CreateUser() {
     const form = event.target;
     const formData = new FormData(form);
     const user = Object.fromEntries(formData.entries());
-    console.log(user);
+
     createUser(user).then(() => {
       form.reset();
       form.name.focus();
+      alert('User created!');
     });
   }
 

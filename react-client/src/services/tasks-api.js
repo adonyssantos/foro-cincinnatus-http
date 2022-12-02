@@ -6,6 +6,6 @@ const tasksApi = axios.create({
 
 const getTasks = () => tasksApi.get('/tasks');
 const getTaskById = taskId => tasksApi.get(`/tasks/${taskId}`);
-const createTask = taskData => tasksApi.post('/tasks/', taskData);
+const createTask = taskData => tasksApi.post('/tasks', taskData);
 
 export { getTasks, getTaskById, createTask };

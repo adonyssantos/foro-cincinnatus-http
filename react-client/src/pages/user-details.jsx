@@ -1,4 +1,7 @@
 import { getUserById } from '../services/users-api';
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
 export default function UserDetails() {
   const [user, setUser] = useState({});
   const { id } = useParams();

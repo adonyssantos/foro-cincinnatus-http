@@ -6,10 +6,11 @@ export default function CreateTask() {
     const form = event.target;
     const formData = new FormData(form);
     const task = Object.fromEntries(formData.entries());
-    console.log(task);
+
     createTask(task).then(() => {
       form.reset();
       form.name.focus();
+      alert('Task created!');
     });
   }
 
@@ -17,8 +18,8 @@ export default function CreateTask() {
     <div>
       <h1>Create Task</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor='name'>Name</label>
-        <input type='text' name='name' id='name' required />
+        <label htmlFor='name'>Title</label>
+        <input type='text' name='title' id='title' required />
         <label htmlFor='description'>Description</label>
         <input type='text' name='description' id='description' required />
         <label htmlFor='author'>Author (ID)</label>
